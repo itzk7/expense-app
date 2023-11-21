@@ -1,7 +1,7 @@
 <script>
     import Delete from "$lib/icons/delete-icon.svelte"
     export let category;
-    export let expense_date;
+    export let expenseDate;
     export let amount;
 </script>
 
@@ -11,7 +11,7 @@
         {category}
     </p>
     <p>
-        {expense_date}
+        {expenseDate}
     </p>
     <p>
         {amount}
@@ -20,7 +20,7 @@
             background: none;
             cursor: pointer;">
                 <Delete />
-    </button>
+    </button>    
 </div>
 
 
@@ -30,14 +30,20 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-evenly;
         font-family: fantasy;
-        align-items: center;
     }
 
     .card-content p {
         width: 25%;
     }
 
+    .card-content:first-child {
+        border-bottom: 0.5px solid var(--grey-dark);
 
+    }
+
+    .card-content:first-child button{
+        visibility: hidden;
+    }
 </style>

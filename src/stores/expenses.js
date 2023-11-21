@@ -8,10 +8,9 @@ function createExpenseStore() {
         add: (expense) => {
             console.log('333', expense)
             const newExpense = {}
-            newExpense['expense_date'] = expense.expense_date
+            newExpense['expenseDate'] = expense.expenseDate
             newExpense['category'] = expense.category
             newExpense['amount'] = expense.amount
-            console.log('ddd', newExpense)
 
             update((expenses) => expenses = [...expenses, newExpense])
         }

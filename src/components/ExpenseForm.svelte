@@ -12,7 +12,7 @@
     const { form, errors, state, handleChange, handleSubmit, handleReset } = createForm({
       initialValues: {
         category: "",
-        expense_date: "",
+        expenseDate: "",
         amount:0
       },
       validationSchema: yup.object().shape({
@@ -20,7 +20,7 @@
           .string()
           .oneOf(categories)
           .required(),
-        expense_date: yup.date().min(threeMonthsAgo).max(new Date()).required(),
+        expenseDate: yup.date().min(threeMonthsAgo).max(new Date()).required(),
         amount: yup
           .number()
           .min(1)
@@ -49,17 +49,17 @@
       <small>{$errors.category}</small>
     {/if}
 
-    <label for="expense_date">Expense Date</label>
+    <label for="expenseDate">Expense Date</label>
     <input
-      id="expense_date"
-      name="expense_date"
+      id="expenseDate"
+      name="expenseDate"
       type="date"
       on:change={handleChange}
       on:blur={handleChange}
-      bind:value={$form.expense_date}
+      bind:value={$form.expenseDate}
     />
-    {#if $errors.expense_date}
-      <small>{$errors.expense_date}</small>
+    {#if $errors.expenseDate}
+      <small>{$errors.expenseDate}</small>
     {/if}
 
     <label for="Amount">Amount</label>
