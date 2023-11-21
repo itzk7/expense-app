@@ -8,5 +8,15 @@
     }
 </script>
 
-<ExpenseForm on:add_expense={addExpense} />
-<ExpenseList expenses={$expenses} />
+<div class="container">
+    <ExpenseForm on:add_expense={addExpense} />
+    <ExpenseList expenses={$expenses} />
+</div>
+
+<style>
+    .container {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+</style>
