@@ -12,7 +12,17 @@ function createExpenseStore() {
             newExpense['category'] = expense.category
             newExpense['amount'] = expense.amount
 
-            update((expenses) => expenses = [...expenses, newExpense])
+            update((expenses) => {
+                newExpense['expenseID'] = expenses.length
+                expenses = [...expenses, newExpense]
+                return expenses
+            })
+        },
+        delete: (expenseID) => {
+            update((expenses) => {
+                expenses = expenses.filter(e => e.expenseID !== expenseID)
+                return expenses
+            })
         }
     }
 }

@@ -1,8 +1,19 @@
 <script>
     import Delete from "$lib/icons/delete-icon.svelte"
+    import { createEventDispatcher } from "svelte";
     export let category;
     export let expenseDate;
     export let amount;
+    export let expenseID;
+
+
+    const dispatcher = createEventDispatcher();
+
+    function deleteExpense() {
+        dispatcher('delete_expense', {
+            'expenseID': expenseID
+        })
+    }
 </script>
 
 
@@ -16,7 +27,7 @@
     <p>
         {amount}
     </p>
-    <button style="border: none;
+    <button on:click={deleteExpense} style="border: none;
             background: none;
             cursor: pointer;">
                 <Delete />
@@ -45,5 +56,6 @@
 
     .card-content:first-child button{
         visibility: hidden;
+        cursor: not-allowed;
     }
 </style>

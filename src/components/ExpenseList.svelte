@@ -2,6 +2,7 @@
     import Expense from "./Expense.svelte";
     export let expenses = []
     const expenseHeader = {}
+    expenseHeader['expenseID']='ID'
     expenseHeader['category']='Category'
     expenseHeader['amount']='Amount'
     expenseHeader['expenseDate']='Expense Date'
@@ -12,7 +13,7 @@
     <div class="card-container">
         <Expense {...expenseHeader}/>
         {#each expenses as expense}
-            <Expense {...expense}/>
+            <Expense on:delete_expense {...expense}/>
         {/each}
     </div>
 {/if}
